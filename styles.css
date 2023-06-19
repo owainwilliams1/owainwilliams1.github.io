@@ -1,0 +1,187 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+:root {
+  --background: #393b35;
+  --background-el1: #41433d;
+  --background-el2: #494b44;
+  --primary: #3bf4fb;
+  --primary-rgb: 59, 244, 251;
+  --accent: #ed254e;
+  --accent-rgb: 237, 37, 78;
+  --text: #ffffff;
+  --text-secondary: #cfcfc9;
+}
+*,
+html,
+body {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  perspective: 800px;
+}
+h1 {
+  font-size: 64px;
+  font-weight: 800;
+}
+h2 {
+  font-size: 32px;
+  font-weight: 500;
+}
+h3 {
+  font-size: 24px;
+  font-weight: 500;
+}
+h4 {
+  font-size: 16px;
+  font-weight: 500;
+}
+h5 {
+  font-size: 12px;
+  font-weight: 500;
+}
+body {
+  background-color: var(--background);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  background-image: linear-gradient(
+    -135deg,
+    rgba(var(--primary-rgb), 0.25),
+    rgba(var(--accent-rgb), 0.25)
+  );
+}
+.header {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+.title {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.icon {
+  height: 72px;
+  align-self: center;
+  aspect-ratio: 1;
+}
+.icon.radius {
+  border-radius: 8px;
+}
+.table {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.table div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.timeline {
+  width: 800px;
+  background-color: var(--background-el1);
+  border-radius: 8px;
+  color: var(--text);
+  padding: 42px 32px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 13px 27px -5px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 64px 0px;
+}
+.timeline ul {
+  list-style-type: none;
+  border-left: 4px solid var(--background-el2);
+}
+.timeline a {
+  text-decoration: none;
+  color: var(--text);
+}
+.timeline a span.date {
+  margin-left: 64px;
+  color: var(--text-secondary);
+}
+.timeline ul li {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 13px 27px -5px;
+  background-color: var(--background-el2);
+  margin-left: 32px;
+  margin-bottom: 32px;
+  border-radius: 8px;
+  padding: 16px 24px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.timeline ul li.secondary {
+  box-shadow: none;
+  background: none;
+  padding: 24px 16px 0px 24px;
+}
+.timeline ul li span {
+  display: inline-block;
+  border-radius: 16px;
+  text-align: center;
+}
+.timeline ul li .content h3 {
+  color: var(--primary);
+}
+.timeline ul li.secondary .content h3 {
+  color: var(--text);
+}
+.timeline ul li .content h4 {
+  color: var(--text-secondary);
+}
+.timeline ul li .content p {
+  padding: 8px 0px 0px 0px;
+}
+.timeline ul li:before {
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  top: 32px;
+  transition: 0.5s;
+  margin-left: -66px;
+}
+.timeline ul li.secondary:before {
+  background-color: var(--text);
+}
+.timeline ul li:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 13px 27px -5px;
+}
+.timeline ul li.secondary:hover {
+  box-shadow: none;
+}
+.timeline ul li:hover:before {
+  background-color: var(--primary);
+  box-shadow: 0px 0px 10px 2px var(--primary);
+}
+.timeline ul li.secondary:hover:before {
+  background-color: var(--text);
+  box-shadow: 0px 0px 10px 2px var(--text);
+}
+@media (max-width: 400px) {
+  .timeline {
+    width: 100%;
+    padding: 32px 8px 32px 8px;
+  }
+  .timeline ul li .content h3 {
+    font-size: 16px;
+  }
+  .timeline ul li .content h4 {
+    font-size: 12px;
+  }
+  .icon {
+    display: none;
+  }
+}
