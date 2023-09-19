@@ -2,6 +2,7 @@
 :root {
   --background: #393b35;
   --background-el1: #41433d;
+  --card-rgb: 73, 75, 68;
   --background-el2: #494b44;
   --primary: #3bf4fb;
   --primary-rgb: 59, 244, 251;
@@ -59,8 +60,8 @@ body {
   scrollbar-width: none; /* Firefox */
   background-image: linear-gradient(
     -135deg,
-    rgba(var(--primary-rgb), 0.25),
-    rgba(var(--accent-rgb), 0.25)
+    rgba(var(--primary-rgb), 0.2),
+    rgba(var(--accent-rgb), 0.2)
   );
 }
 .header {
@@ -105,10 +106,24 @@ body::-webkit-scrollbar {
   flex-direction: column;
   gap: var(--large);
   margin: var(--xx-large) 0px;
+  background-image: linear-gradient(
+    -135deg,
+    rgba(var(--primary-rgb), 0.08),
+    rgba(var(--accent-rgb), 0.08)
+  );
 }
 .timeline ul {
   list-style-type: none;
-  border-left: 4px solid var(--background-el2);
+
+  border: 4px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(
+    rgba(var(--primary-rgb), 0.2),
+    rgba(var(--accent-rgb), 0.2)
+  );
+  border-right: none;
+  border-top: none;
+  border-bottom: none;
 }
 .timeline ul a {
   text-decoration: none;
@@ -120,7 +135,7 @@ body::-webkit-scrollbar {
 }
 .timeline ul li {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 13px 27px -5px;
-  background-color: var(--background-el2);
+  background-color: rgba(var(--card-rgb), 0.5);
   margin-left: var(--large);
   margin-bottom: var(--large);
   border-radius: var(--small);
@@ -160,7 +175,7 @@ body::-webkit-scrollbar {
   border-radius: 50%;
   top: var(--large);
   transition: 0.5s;
-  margin-left: calc(-4px - var(--xx-large));
+  margin-left: calc(-3px - var(--xx-large));
 }
 .timeline ul li.secondary:before {
   background-color: var(--text);
