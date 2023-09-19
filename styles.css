@@ -9,6 +9,13 @@
   --accent-rgb: 237, 37, 78;
   --text: #ffffff;
   --text-secondary: #cfcfc9;
+  --xx-large: 64px;
+  --x-large: 42px;
+  --large: 32px;
+  --x-medium: 24px;
+  --medium: 16px;
+  --x-small: 12px;
+  --small: 8px;
 }
 *,
 html,
@@ -20,23 +27,25 @@ body {
   perspective: 800px;
 }
 h1 {
-  font-size: 64px;
+  font-size: var(--xx-large);
   font-weight: 800;
 }
 h2 {
-  font-size: 32px;
+  font-size: var(--large);
   font-weight: 500;
 }
 h3 {
-  font-size: 24px;
+  font-size: var(--x-medium);
   font-weight: 500;
 }
-h4 {
-  font-size: 16px;
+h4,
+span,
+p {
+  font-size: var(--medium);
   font-weight: 500;
 }
 h5 {
-  font-size: 12px;
+  font-size: var(--x-small);
   font-weight: 500;
 }
 body {
@@ -56,7 +65,7 @@ body {
 }
 .header {
   display: flex;
-  gap: 16px;
+  gap: var(--medium);
   flex-direction: column;
 }
 body::-webkit-scrollbar {
@@ -65,7 +74,7 @@ body::-webkit-scrollbar {
 .title {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: var(--medium);
 }
 .icon {
   height: 72px;
@@ -73,12 +82,12 @@ body::-webkit-scrollbar {
   aspect-ratio: 1;
 }
 .icon.radius {
-  border-radius: 8px;
+  border-radius: var(--small);
 }
 .table {
   display: flex;
   flex-direction: row;
-  gap: 16px;
+  gap: var(--medium);
 }
 .table div {
   display: flex;
@@ -88,34 +97,34 @@ body::-webkit-scrollbar {
 .timeline {
   width: 800px;
   background-color: var(--background-el1);
-  border-radius: 8px;
+  border-radius: var(--small);
   color: var(--text);
-  padding: 42px 32px;
+  padding: var(--x-large) var(--large);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 13px 27px -5px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  margin: 64px 0px;
+  gap: var(--large);
+  margin: var(--xx-large) 0px;
 }
 .timeline ul {
   list-style-type: none;
   border-left: 4px solid var(--background-el2);
 }
-.timeline a {
+.timeline ul a {
   text-decoration: none;
   color: var(--text);
 }
-.timeline a span.date {
-  margin-left: 64px;
+.timeline ul a span.date {
+  margin-left: var(--xx-large);
   color: var(--text-secondary);
 }
 .timeline ul li {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 13px 27px -5px;
   background-color: var(--background-el2);
-  margin-left: 32px;
-  margin-bottom: 32px;
-  border-radius: 8px;
-  padding: 16px 24px;
+  margin-left: var(--large);
+  margin-bottom: var(--large);
+  border-radius: var(--small);
+  padding: var(--medium) var(--x-medium);
   position: relative;
   cursor: pointer;
   transition: 0.5s;
@@ -123,11 +132,11 @@ body::-webkit-scrollbar {
 .timeline ul li.secondary {
   box-shadow: none;
   background: none;
-  padding: 24px 16px 0px 24px;
+  padding: var(--x-medium) var(--medium) 0px var(--x-medium);
 }
 .timeline ul li span {
   display: inline-block;
-  border-radius: 16px;
+  border-radius: var(--medium);
   text-align: center;
 }
 .timeline ul li .content h3 {
@@ -140,18 +149,18 @@ body::-webkit-scrollbar {
   color: var(--text-secondary);
 }
 .timeline ul li .content p {
-  padding: 8px 0px 0px 0px;
+  padding: var(--small) 0px 0px 0px;
 }
 .timeline ul li:before {
   position: absolute;
   content: "";
-  width: 16px;
-  height: 16px;
+  width: var(--medium);
+  height: var(--medium);
   background-color: var(--primary);
   border-radius: 50%;
-  top: 32px;
+  top: var(--large);
   transition: 0.5s;
-  margin-left: -66px;
+  margin-left: calc(-4px - var(--xx-large));
 }
 .timeline ul li.secondary:before {
   background-color: var(--text);
@@ -171,17 +180,26 @@ body::-webkit-scrollbar {
   box-shadow: 0px 0px 10px 2px var(--text);
 }
 @media (max-width: 400px) {
-  .timeline {
-    width: 100%;
-    padding: 32px 8px 32px 8px;
-  }
-  .timeline ul li .content h3 {
-    font-size: 16px;
-  }
-  .timeline ul li .content h4 {
-    font-size: 12px;
-  }
   .icon {
     display: none;
+  }
+  :root {
+    --xx-large: 32px;
+    --x-large: 24px;
+    --large: 16px;
+    --x-medium: 12px;
+    --medium: 10px;
+    --x-small: 8px;
+    --small: 4px;
+  }
+}
+@media (max-width: 800px) {
+  body {
+    background: none;
+    background-image: none;
+  }
+  .timeline {
+    margin: 0;
+    border-radius: 0px;
   }
 }
