@@ -68,6 +68,7 @@ body {
   display: flex;
   gap: var(--medium);
   flex-direction: column;
+  margin-bottom: 40px;
 }
 body::-webkit-scrollbar {
   display: none;
@@ -117,13 +118,11 @@ body::-webkit-scrollbar {
 
   border: 4px solid;
   border-image-slice: 1;
-  border-image-source: linear-gradient(
-    rgba(var(--primary-rgb), 0.2),
-    rgba(var(--accent-rgb), 0.2)
-  );
+  border-color: #73736f;
   border-right: none;
   border-top: none;
   border-bottom: none;
+  padding-bottom: -40px;
 }
 .timeline ul a {
   text-decoration: none;
@@ -137,12 +136,13 @@ body::-webkit-scrollbar {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 13px 27px -5px;
   background-color: rgba(var(--card-rgb), 0.5);
   margin-left: var(--large);
-  margin-bottom: var(--large);
+  margin-bottom: calc(var(--large) + 40px);
   border-radius: var(--small);
   padding: var(--medium) var(--x-medium);
   position: relative;
   cursor: pointer;
   transition: 0.5s;
+  margin-top: -40px;
 }
 .timeline ul li.secondary {
   box-shadow: none;
@@ -175,7 +175,7 @@ body::-webkit-scrollbar {
   border-radius: 50%;
   top: var(--large);
   transition: 0.5s;
-  margin-left: calc(-3px - var(--xx-large));
+  margin-left: calc(-2px - var(--xx-large));
 }
 .timeline ul li.secondary:before {
   background-color: var(--text);
