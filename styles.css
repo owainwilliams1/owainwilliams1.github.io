@@ -7,15 +7,15 @@
   --background-secondary: #cfcfc9;
 
   /* sizes */
-  --xx-large: 6vw;
-  --x-large: 4.5vw;
-  --large: 2vw;
-  --medium: 1vw;
+  --xx-large: 6.85vw;
+  --x-large: 4.236vw;
+  --large: 2.617vw;
+  --medium: 1.618vw;
   --small: 1vw;
 
   /* text */
-  --header: var(--x-large);
-  --standard: var(--medium)
+  --header: 4.236vw;
+  --standard: 1.618vw;
 }
 
 *,
@@ -76,7 +76,7 @@ h5 {
 ion-item>ion-icon,
 ion-item>span {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: -webkit-baseline-middle;
 }
 
 .contacts {
@@ -182,9 +182,10 @@ body::-webkit-scrollbar {
 }
 
 .timeline ul li span {
-  display: inline-block;
-  border-radius: var(--medium);
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  gap: var(--small);
+  align-items: center;
 }
 
 .timeline ul li .content p {
@@ -201,11 +202,14 @@ body::-webkit-scrollbar {
 
 @media (max-width: 800px) {
   :root {
-    --xx-large: 8vw;
-    --x-large: 6vw;
-    --large: 4vw;
-    --medium: 2vw;
-    --small: 1vw;
+    --xx-large: 11.089vw;
+    --x-large: 6.85vw;
+    --large: 4.236vw;
+    --medium: 2.617vw;
+    --small: 1.618vw;
+
+    --header: 6.85vw;
+    --standard: 2.617vw;
   }
 
   .container {
@@ -224,8 +228,40 @@ body::-webkit-scrollbar {
   }
 }
 
-@media (max-width: 400px) {
-  .icon {
+@media (max-width: 500px) {
+  :root {
+    --xx-large: 11.089vw;
+    --x-large: 6.85vw;
+    --large: 4.236vw;
+    --medium: 2.617vw;
+    --small: 1.618vw;
+
+    --header: 6.85vw;
+    --standard: 4.236vw;
+  }
+
+  ion-item>ion-icon {
+    vertical-align: middle;
+  }
+
+  ion-item>span {
     display: none;
+  }
+
+  .contacts {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: var(--medium);
+    grid-row-gap: var(--medium);
+  }
+
+  .contacts>a>ion-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--xx-large);
+    border-radius: calc(var(--xx-large) / 6.4);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px var(--medium) 27px calc(-1 * var(--small));
   }
 }
