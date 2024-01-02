@@ -32,6 +32,7 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -301,4 +302,46 @@
       </div>
     </div>
   </body>
+  <script>
+    let recentlyScrolled = false;
+    let timeout;
+
+    document.addEventListener(
+      "wheel",
+      function (event) {
+        recentlyScrolled = true;
+        $("html, body").stop();
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          recentlyScrolled = false;
+        }, 3000);
+      },
+      false
+    );
+
+    $(() => {
+      const interval = setInterval(() => {
+        const y = $(window).scrollTop();
+        if (recentlyScrolled) {
+          return;
+        }
+
+        $("html, body").animate(
+          {
+            scrollTop: y + 100,
+          },
+          2000,
+          "linear"
+        );
+      }, 2000);
+
+      // $("html, body").animate(
+      //   {
+      //     scrollTop: $(document).height() - $(window).height(),
+      //   },
+      //   20000,
+      //   "linear"
+      // );
+    });
+  </script>
 </html>
