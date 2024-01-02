@@ -131,6 +131,16 @@ ion-icon {
   transform: translateY(-50%);
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: var(--medium)
+}
+
+.header>img {
+  height: calc(2 * 1.4 * var(--header));
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -144,12 +154,12 @@ body::-webkit-scrollbar {
 
 .icon {
   /* height: var(--xx-large); */
-  height: calc(3 * 1.4 * var(--medium));
+  height: calc(3 * 1.4 * var(--standard));
   aspect-ratio: 1;
 }
 
 .icon.radius {
-  border-radius: calc(3 * 1.4 * var(--medium) / 6.4);
+  border-radius: calc(3 * 1.4 * var(--standard) / 6.4);
 }
 
 .timeline ul {
