@@ -319,10 +319,42 @@
       false
     );
 
+    $(document).keydown((e) => {
+      if (
+        e.which == 33 || // page up
+        e.which == 34 || // page dn
+        e.which == 32 || // spacebar
+        e.which == 38 || // up
+        e.which == 40 || // down
+        (e.ctrlKey && e.which == 36) || // ctrl + home
+        (e.ctrlKey && e.which == 35) // ctrl + end
+      ) {
+        recentlyScrolled = true;
+        $("html, body").stop();
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+          recentlyScrolled = false;
+        }, 3000);
+      }
+    });
+
     $(() => {
+      const y = $(window).scrollTop();
+      if (recentlyScrolled || $(window).width() <= 800) {
+        return;
+      }
+
+      $("html, body").animate(
+        {
+          scrollTop: y + 100,
+        },
+        2000,
+        "linear"
+      );
+
       const interval = setInterval(() => {
         const y = $(window).scrollTop();
-        if (recentlyScrolled) {
+        if (recentlyScrolled || $(window).width() <= 800) {
           return;
         }
 
@@ -334,14 +366,6 @@
           "linear"
         );
       }, 2000);
-
-      // $("html, body").animate(
-      //   {
-      //     scrollTop: $(document).height() - $(window).height(),
-      //   },
-      //   20000,
-      //   "linear"
-      // );
     });
   </script>
 </html>
