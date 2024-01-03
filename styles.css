@@ -112,7 +112,8 @@ ion-icon {
 }
 
 .timeline {
-  flex: 1
+  flex: 1;
+  overflow: hidden;
 }
 
 .parent {
@@ -211,6 +212,10 @@ body::-webkit-scrollbar {
   box-shadow: none;
 }
 
+.star {
+  color: gold
+}
+
 @media (max-width: 800px) {
   :root {
     --xx-large: 11.089vw;
@@ -275,4 +280,12 @@ body::-webkit-scrollbar {
     border-radius: calc(var(--xx-large) / 6.4);
     box-shadow: rgba(0, 0, 0, 0.1) 0px var(--medium) 27px calc(-1 * var(--small));
   }
+}
+
+li:hover~li {
+  filter: blur(3px);
+}
+
+li:has(~ li:hover) {
+  filter: blur(3px);
 }
