@@ -113,7 +113,7 @@ ion-icon {
 
 .timeline {
   flex: 1;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .parent {
@@ -278,7 +278,10 @@ body::-webkit-scrollbar {
     align-items: center;
     height: var(--xx-large);
     border-radius: calc(var(--xx-large) / 6.4);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px var(--medium) 27px calc(-1 * var(--small));
+  }
+
+  .timeline ul li {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px var(--small) 27px calc(-1 * var(--small));
   }
 }
 
