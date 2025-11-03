@@ -67,6 +67,12 @@ p {
   font-weight: 300;
 }
 
+ion-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 ion-item>ion-icon,
 ion-item>span {
   display: inline-block;
